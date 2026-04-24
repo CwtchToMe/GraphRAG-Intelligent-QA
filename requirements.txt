@@ -1,0 +1,25 @@
+langchain==0.1.0
+langchain-community==0.0.10
+langchain-openai==0.0.2
+langchain-core==0.1.10
+langchain-text-splitters==0.0.1
+langchain-ollama>=0.1.0  # 本地Ollama支持
+ollama>=0.1.0              # Ollama客户端
+sentence-transformers==2.3.1
+faiss-cpu==1.7.4
+networkx==3.2.1
+pypdf==3.17.4
+python-docx==1.1.0
+neo4j==5.14.1
+flask==3.0.0
+streamlit==1.29.0
+openai==1.7.2
+python-dotenv==1.0.0
+numpy==1.26.3
+pandas==2.1.4
+scikit-learn==1.4.0
+jieba==0.42.1
+transformers==4.36.2
+torch==2.1.2
+chromadb==0.4.22
+plotly==5.18.0
