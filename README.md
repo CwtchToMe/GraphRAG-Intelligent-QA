@@ -5,7 +5,7 @@
 ## 系统特性
 
 - **知识库构建**: 支持PDF/TXT/DOCX/XLSX文档上传和处理
-- **智能问答**: 集成大模型API（OpenAI/DeepSeek等）+ 本地Ollama
+- **智能问答**: 集成大模型API（DeepSeek/OpenAI）+ 本地Ollama双模式
 - **知识图谱可视化**: Plotly交互式图表展示
 - **Prompt模板展示**: 完整展示系统、NER、RE Prompt
 - **测试案例对比**: 3个典型案例（简单查询/多跳推理/边界案例）
@@ -42,14 +42,13 @@ streamlit run app.py
 ### 5. 命令行脚本
 
 ```bash
-# 全流程测试
-python scripts/run_full_pipeline.py
+# 图谱构建（数据处理）
+python scripts/build_graph.py
 
-# 快速环境检查
-python scripts/run_quick_check.py
-
-# 完整功能测试
+# 功能测试
 python tests/test_all.py
+python tests/test_movie_pipeline.py
+python tests/test_visualization.py
 ```
 
 ## 项目结构
@@ -71,24 +70,13 @@ GraphRAG/
 │   ├── vector_store.py     # 向量数据库（ChromaDB + BGE Embedding）
 │   └── movie_data.py       # 电影数据处理模块
 │
-├── scripts/                # 运行脚本
-│   ├── run_full_pipeline.py    # 全流程测试
-│   ├── run_quick_check.py      # 快速环境检查
-│   └── quick_check.py          # 基础环境检查
+├── scripts/                # 数据处理脚本
+│   └── build_graph.py          # 图谱构建脚本
 │
 ├── tests/                  # 测试脚本
 │   ├── test_all.py             # 完整功能测试
 │   ├── test_visualization.py   # 可视化测试
 │   └── test_movie_pipeline.py  # 电影数据管线测试
-│
-├── analysis/               # 数据分析脚本
-│   ├── analyze_data.py         # 投诉数据分析
-│   ├── analyze_events.py       # 事件分析
-│   ├── analyze_movie_cats.py   # 电影分类分析
-│   └── analyze_movie_data.py   # 电影数据分析
-│
-├── docs/                   # 项目文档
-│   └── project_report.md       # 项目研究报告
 │
 └── data/                   # 数据目录
     ├── raw_data/               # 原始数据（movie_data.json等）
@@ -131,7 +119,6 @@ GraphRAG/
 ### Tab 4: 知识图谱可视化
 - 交互式Plotly图表
 - 三元组数据表格
-- 导出功能（JSON/CSV/GEXF）
 - 图谱统计信息
 
 ### Tab 5: 测试案例
